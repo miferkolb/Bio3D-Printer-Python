@@ -85,7 +85,7 @@ class BioWitboxModification(Script):
 
         # Search for extruder first push to change for OPENING or CLOSING valve and waiting 
 
-         search_string = self.getSettingValueByKey("search_Tx")
+        search_string = self.getSettingValueByKey("search_Tx")
         if not self.getSettingValueByKey("is_regex_Tx"):
             search_string = re.escape(search_string) #Need to search for the actual string, not as a regex.
         search_regex = re.compile(search_string)
