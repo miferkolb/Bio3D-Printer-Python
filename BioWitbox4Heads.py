@@ -83,37 +83,28 @@ class BioWitboxModification(Script):
         
         ################################################
 
-        # Search
+        # Search for extruder first push to change for opening valve and waiting 
 
- 
-
-        search_string = self.getSettingValueByKey("search_Tx")
+         search_string = self.getSettingValueByKey("search_Tx")
         if not self.getSettingValueByKey("is_regex_Tx"):
             search_string = re.escape(search_string) #Need to search for the actual string, not as a regex.
         search_regex = re.compile(search_string)
 
         for layer_number, layer in enumerate(data):
+            if (^G1 E2.00000 F2400.00000): #Looks for extruder first push to compensate the retraction to replace
             if re.search(search_regex, layer):
                 tool = re.search(search_regex, layer)
                 num_tool = tool.group(1)
-            
-            
-            if num_tool < 1:
-                print(num_tool)
-            else if num_tool 
+                data[layer_number] = 'M106 '+'P'+str(num_tool)+' '+'S255 ; Open '+str(tool)+' valve' #Replace to open Valve and Wait
+                # 'G4 P50; Wait 50 miliseconds'
 
 
-                #   data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
-
-        
-
-
+        ##############
 
         # replace_string = self.getSettingValueByKey("replace_Tx")
-
         
             data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
-
+name = "M106 P"
 
 
 
