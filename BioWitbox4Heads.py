@@ -83,7 +83,7 @@ class BioWitboxModification(Script):
         
         ################################################
 
-        # Search for extruder first push to change for opening valve and waiting 
+        # Search for extruder first push to change for OPENING or CLOSING valve and waiting 
 
          search_string = self.getSettingValueByKey("search_Tx")
         if not self.getSettingValueByKey("is_regex_Tx"):
@@ -96,9 +96,15 @@ class BioWitboxModification(Script):
                 tool = re.search(search_regex, layer)
                 num_tool = tool.group(1)
                 data[layer_number] = 'M106 '+'P'+str(num_tool)+' '+'S255 ; Open '+str(tool)+' valve' #Replace to open Valve and Wait
-                # 'G4 P50; Wait 50 miliseconds'
-
-
+                # 'G4 P50; Wait 50 miliseconds'  <-- Esta es la linea adicional que hay que añadir
+            elif (^G1 E([0 -9.]+) F([0 -9.]+)): #Looks for extruder retraction to replace with closing valve and waiting
+            if re.search(search_regex, layer):
+                tool = re.search(search_regex, layer)
+                num_tool = tool.group(1)
+                data[layer_number] = 'M106 '+'P'+str(num_tool)+' '+'S0 ; Close '+str(tool)+' valve' #Replace to close Valve and Wait
+                # 'G4 P50; Wait 50 miliseconds' <-- Esta es la linea adicional que hay que añadir
+        
+ 
         ##############
 
         # replace_string = self.getSettingValueByKey("replace_Tx")
@@ -106,6 +112,6 @@ class BioWitboxModification(Script):
             data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
 name = "M106 P"
 
-
+        #############
 
         return data
