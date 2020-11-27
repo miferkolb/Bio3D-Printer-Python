@@ -91,9 +91,9 @@ class BioWitboxModification(Script):
         search_regex = re.compile(search_string)
         replace_string = self.getSettingValueByKey("replace_Tx")
 
-        retraction_open_string = "^G1 F3600"
+        retraction_open_string = "^G1 F1800"
         search_regex_retraction_open = re.compile(retraction_open_string)
-        retraction_close_string =  "^G1 F1800" # Looks for extruder retraction to replace with closing valve and waiting
+        retraction_close_string =  "^G1 F3600" # Looks for extruder retraction to replace with closing valve and waiting
         search_regex_retraction_close = re.compile(retraction_close_string)
 
         while i < len(data):
