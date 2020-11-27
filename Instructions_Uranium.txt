@@ -1,0 +1,20 @@
+# Download the repository from github>
+git clone https://github.com/Ultimaker/Uranium.git
+cd Uranium
+mkdir build
+cd build
+cmake ..
+
+# Now it creates the Makefile inside the directory
+# The build folder now contains a Makefile, and when you run make, the library will be compiled.
+# After this step, the freshly built library is located at build/resources/i18n/nl_NL/LC_MESSAGES/uranium.mo and etc
+
+# But, instead of that...
+# You could leave the library as well as the include files there and reference them when compiling/linking your project. 
+# Usually, you want to install them, so they are available systemwide and can be found automatically.
+
+# This is done using>
+
+> sudo make install
+
+# The library should now be in /usr/local/lib, the include files in /usr/local/include. 

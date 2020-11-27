@@ -2,8 +2,11 @@
 # PostProcessingPlugin for the modification of the Gcode for Witbox Bioprinter
 
 import re #To perform changes on Gcode for Bio-Witbox.
+import sys, os
 
-from ..Script import Script
+# sys.path.append(os.path.abspath(os.path.join('..', 'config')))
+sys.path.append(os.path.abspath('..'))
+from Script import Script
 
 
 class BioWitboxModification(Script):
@@ -80,36 +83,36 @@ class BioWitboxModification(Script):
 
         for layer_number, layer in enumerate(data):
             data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
+
+        return data
         
         ################################################
 
-        # Search for extruder first push to change for OPENING or CLOSING valve and waiting 
-        i = 0
-        search_string = self.getSettingValueByKey("search_Tx")
-        if not self.getSettingValueByKey("is_regex_Tx"):
-            search_string = re.escape(search_string) # Need to search for the actual string, not as a regex.
-        search_regex = re.compile(search_string)
-        replace_string = self.getSettingValueByKey("replace_Tx")
+        # Search for extruder first push to change for opening valve and waiting 
 
-        retraction_open_string = "^G1 E2.000 F2400.00"
-        search_regex_retraction_open = re.compile(retraction_open_string)
-        retraction_close_string =  "^G1 E([0-9.]+) F([0-9.]+)" # Looks for extruder retraction to replace with closing valve and waiting
-        search_regex_retraction_close = re.compile(retraction_close_string)
+        #  search_string = self.getSettingValueByKey("search_Tx")
+        # if not self.getSettingValueByKey("is_regex_Tx"):
+        #     search_string = re.escape(search_string) #Need to search for the actual string, not as a regex.
+        # search_regex = re.compile(search_string)
 
-        while i < len(data):
-            tool = re.search(search_regex, data[i])
-            if re.search(search_regex, data[i]):
-                num_tool = tool.group(1)
-                name_tool = tool.group(0)
+        # for layer_number, layer in enumerate(data):
+        #     if (^G1 E2.00000 F2400.00000): #Looks for extruder first push to compensate the retraction to replace
+        #     if re.search(search_regex, layer):
+        #         tool = re.search(search_regex, layer)
+        #         num_tool = tool.group(1)
+        #         data[layer_number] = 'M106 '+'P'+str(num_tool)+' '+'S255 ; Open '+str(tool)+' valve' #Replace to open Valve and Wait
+        #         # 'G4 P50; Wait 50 miliseconds'  <-- Esta es la linea adicional que hay que añadir
+        #     elif (^G1 E([0 -9.]+) F([0 -9.]+)): #Looks for extruder retraction to replace with closing valve and waiting
+        #     if re.search(search_regex, layer):
+        #         tool = re.search(search_regex, layer)
+        #         num_tool = tool.group(1)
+        #         data[layer_number] = 'M106 '+'P'+str(num_tool)+' '+'S0 ; Close '+str(tool)+' valve' #Replace to close Valve and Wait
+                # 'G4 P50; Wait 50 miliseconds' <-- Esta es la linea adicional que hay que añadir
+        ##############
 
-            if re.search(search_regex_retraction_open, data[i]):
-                data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S255 ; Open ' + str(name_tool) + ' valve\n' # Replace to open Valve and Wait
-                data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
-                i = i + 1
-            elif re.search(search_regex_retraction_close, data[i]):
-                data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S0 ; Close ' + str(name_tool) + ' valve\n' #Replace to close Valve and Wait
-                data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
-                i = i + 1
-            i = i + 1
+        # replace_string = self.getSettingValueByKey("replace_Tx")
+        
+        # data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
 
-        return data
+        # return data
+
