@@ -6,7 +6,7 @@ import re #To perform changes on Gcode for Bio-Witbox.
 from ..Script import Script
 
 
-class BioWitboxModification(Script):
+class BioWitbox4Heads(Script):
     """Performs a search-and-replace on all g-code.
 
     Due to technical limitations, the search can't cross the border between
@@ -16,9 +16,9 @@ class BioWitboxModification(Script):
     def getSettingDataString(self):
         return """{
             "name": "Search and Replace for Bio Witbox",
-            "key": "SearchAndReplaceBio",
+            "key": "BioWitbox4Heads",
             "metadata": {},
-            "version": 1,
+            "version": 2,
             "settings":
             {
                 "search_M10_49_":
