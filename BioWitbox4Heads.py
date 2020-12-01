@@ -1,4 +1,4 @@
-# Creative Commons 2020 Andres Sanz Garcia and Miguel Fernandez Kolb
+# Creative Commons 2020 Miguel Fernandez Kolb
 # PostProcessingPlugin for the modification of the Gcode for Witbox Bioprinter
 
 import re #To perform changes on Gcode for Bio-Witbox.
@@ -26,7 +26,7 @@ class BioWitbox4Heads(Script):
                     "label": "Search Set hotend temperature and Wait for hotend temperature",
                     "description": "All occurrences of this text will get replaced by the replacement text.",
                     "type": "str",
-                    "default_value": "^M10[49] S([0-9]+) T([0-9]+)"
+                    "default_value": "^M10[49] T([0-9]+) S([0-9]+) "
                 },
                 "replace_M10_49_":
                 {
@@ -91,25 +91,48 @@ class BioWitbox4Heads(Script):
         search_regex = re.compile(search_string)
         replace_string = self.getSettingValueByKey("replace_Tx")
 
-        retraction_open_string = "^G1 F1800"
-        search_regex_retraction_open = re.compile(retraction_open_string)
-        retraction_close_string =  "^G1 F3600" # Looks for extruder retraction to replace with closing valve and waiting
-        search_regex_retraction_close = re.compile(retraction_close_string)
+        #retraction_open_string = "^G1 F1800"
+        #search_regex_retraction_open = re.compile(retraction_open_string)
+        #retraction_close_string =  "^G1 F3600" # Looks for extruder retraction to replace with closing valve and waiting
+        #search_regex_retraction_close = re.compile(retraction_close_string)
 
-        while i < len(data):
+        
+        open_string = "^G1  cualquier cosa E>0"
+        search_regex_open = re.compile(open_string)
+        close_string =  "^G0 ó g1 cualquier cosa E<=0" 
+        search_regex_close = re.compile(close_string)
+
+        while i < len(data): # len counts lines in file
             tool = re.search(search_regex, data[i])
             if re.search(search_regex, data[i]):
-                num_tool = tool.group(1)
-                name_tool = tool.group(0)
+                num_tool = tool.group(1) # extracts only data between () ex 0,1,2,3
+                name_tool = tool.group(0) # extracts full pattern ex T0,T1,T2,T3
 
-            if re.search(search_regex_retraction_open, data[i]):
+            if re.search(search_regex_open, data[i]):
+                #leer y guardar lo que hay en i, sustituir en i con M106, en i+1 escribir lo que había en i, y en i+2 la espera de 50 
                 data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S255 ; Open ' + str(name_tool) + ' valve\n' # Replace to open Valve and Wait
                 data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
                 i = i + 1
-            elif re.search(search_regex_retraction_close, data[i]):
+            elif re.search(search_regex_close, data[i]):
                 data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S0 ; Close ' + str(name_tool) + ' valve\n' #Replace to close Valve and Wait
                 data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
                 i = i + 1
             i = i + 1
+
+        # while i < len(data): # len counts lines in file
+        #     tool = re.search(search_regex, data[i])
+        #     if re.search(search_regex, data[i]):
+        #         num_tool = tool.group(1) # extracts only data between () ex 0,1,2,3
+        #         name_tool = tool.group(0) # extracts full pattern ex T0,T1,T2,T3
+
+        #     if re.search(search_regex_retraction_open, data[i]):
+        #         data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S255 ; Open ' + str(name_tool) + ' valve\n' # Replace to open Valve and Wait
+        #         data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
+        #         i = i + 1
+        #     elif re.search(search_regex_retraction_close, data[i]):
+        #         data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S0 ; Close ' + str(name_tool) + ' valve\n' #Replace to close Valve and Wait
+        #         data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
+        #         i = i + 1
+        #     i = i + 1
 
         return data
