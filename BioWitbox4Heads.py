@@ -26,7 +26,7 @@ class BioWitbox4Heads(Script):
                     "label": "Search Set hotend temperature and Wait for hotend temperature",
                     "description": "All occurrences of this text will get replaced by the replacement text.",
                     "type": "str",
-                    "default_value": "^M10[49] T([0-9]+) S([0-9]+) "
+                    "default_value": "^M10[49]"
                 },
                 "replace_M10_49_":
                 {
