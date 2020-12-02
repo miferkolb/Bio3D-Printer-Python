@@ -1,0 +1,262 @@
+;FLAVOR:Marlin
+;TIME:52
+;Filament used: 0.00178874m, 0.00178874m, 0.00178874m, 0.00178874m
+;Layer height: 0.15
+;MINX:72.698
+;MINY:68.221
+;MINZ:0.3
+;MAXX:183.704
+;MAXY:127.976
+;MAXZ:1.3
+;Generated with Cura_SteamEngine 4.8.0
+T0
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+M105
+; deleted M10[49]
+M105
+; deleted M10[49]
+M105
+; deleted M10[49]
+M105
+; deleted M10[49]
+M82 ;absolute extrusion mode
+
+G92 E0
+G92 E0
+M106 P0 S0 ; Close T0 valve
+G1 F1500 E-6.5
+G4 P50; Wait 50 miliseconds
+;LAYER_COUNT:1
+;LAYER:0
+; deleted M107
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+; deleted M10[49]
+;MESH:Circuito recto 0.2mm.stl(3)
+G0 F3600 X170.152 Y125.576 Z0.3
+;TYPE:WALL-OUTER
+M106 P0 S255 ; Open T0 valve
+G1 F1500 E0
+G4 P50; Wait 50 miliseconds
+G1 F300 X170.152 Y125.97 E0.00958
+G1 X179.952 Y125.97 E0.24793
+G1 X179.952 Y126.376 E0.25781
+G1 X170.152 Y126.376 E0.49616
+G1 X170.152 Y126.77 E0.50574
+G1 X179.952 Y126.77 E0.74409
+G1 X179.952 Y127.176 E0.75397
+G1 X170.152 Y127.176 E0.99232
+G1 X170.152 Y127.57 E1.0019
+G1 X179.952 Y127.57 E1.24025
+G1 X179.952 Y127.976 E1.25012
+G1 X170.146 Y127.976 E1.48862
+G1 X170.146 Y127.97 E1.48877
+G1 X179.946 Y127.97 E1.49725
+G1 X179.946 Y127.576 E1.49751
+G1 X170.146 Y127.576 E1.5062
+G1 X170.146 Y127.17 E1.50665
+G1 X179.946 Y127.17 E1.51534
+G1 X179.946 Y126.776 E1.5156
+G1 X170.146 Y126.776 E1.52429
+G1 X170.146 Y126.37 E1.52474
+G1 X179.946 Y126.37 E1.53344
+G1 X179.946 Y125.976 E1.53369
+G1 X170.146 Y125.976 E1.54239
+G1 X170.146 Y125.57 E1.54283
+G1 X179.952 Y125.57 E1.78133
+G1 X179.952 Y125.576 E1.78147
+G1 X170.152 Y125.576 E1.78874
+G0 F3600 X170.152 Y125.674
+M106 P0 S0 ; Close T0 valve
+G1 F1200 E-14.21126
+G4 P50; Wait 50 miliseconds
+G1 F600 Z1.3
+G92 E0
+T1
+G92 E0
+M105
+; deleted M10[49]
+; deleted M10[49]
+; deleted M107 P1
+M106 P1 S0 ; Close T1 valve
+G1 F1500 E-6.5
+G4 P50; Wait 50 miliseconds
+G1 F600 Z0.3
+;MESH:Circuito recto 0.2mm.stl(4)
+G0 F3600 X72.729 Y125.54
+; deleted M10[49]
+;TYPE:WALL-OUTER
+M106 P1 S255 ; Open T1 valve
+G1 F1500 E0
+G4 P50; Wait 50 miliseconds
+G1 F1800 X72.729 Y125.934 E0.00958
+G1 X82.529 Y125.934 E0.24793
+G1 X82.529 Y126.34 E0.25781
+G1 X72.729 Y126.34 E0.49616
+G1 X72.729 Y126.734 E0.50574
+G1 X82.529 Y126.734 E0.74409
+G1 X82.529 Y127.14 E0.75397
+G1 X72.729 Y127.14 E0.99232
+G1 X72.729 Y127.534 E1.0019
+G1 X82.529 Y127.534 E1.24025
+G1 X82.529 Y127.94 E1.25012
+G1 X72.723 Y127.94 E1.48862
+G1 X72.723 Y127.934 E1.48877
+; deleted M10[49]
+G1 X82.523 Y127.934 E1.49725
+G1 X82.523 Y127.54 E1.49751
+G1 X72.723 Y127.54 E1.5062
+G1 X72.723 Y127.134 E1.50665
+G1 X82.523 Y127.134 E1.51534
+G1 X82.523 Y126.74 E1.5156
+G1 X72.723 Y126.74 E1.52429
+G1 X72.723 Y126.334 E1.52474
+G1 X82.523 Y126.334 E1.53344
+G1 X82.523 Y125.94 E1.53369
+G1 X72.723 Y125.94 E1.54239
+G1 X72.723 Y125.534 E1.54283
+G1 X82.529 Y125.534 E1.78133
+G1 X82.529 Y125.54 E1.78147
+G1 X72.729 Y125.54 E1.78874
+G0 F3600 X72.729 Y125.638
+M106 P1 S0 ; Close T1 valve
+G1 F1200 E-14.21126
+G4 P50; Wait 50 miliseconds
+G1 F600 Z1.3
+G92 E0
+T2
+G92 E0
+M105
+; deleted M10[49]
+; deleted M10[49]
+; deleted M107 P2
+M106 P2 S0 ; Close T2 valve
+G1 F1500 E-6.5
+G4 P50; Wait 50 miliseconds
+G1 F600 Z0.3
+;MESH:Circuito recto 0.2mm.stl(6)
+G0 F3600 X72.704 Y68.554
+; deleted M10[49]
+;TYPE:WALL-OUTER
+M106 P2 S255 ; Open T2 valve
+G1 F1500 E0
+G4 P50; Wait 50 miliseconds
+G1 F1800 X72.704 Y68.948 E0.00958
+G1 X82.504 Y68.948 E0.24793
+G1 X82.504 Y69.354 E0.25781
+G1 X72.704 Y69.354 E0.49616
+G1 X72.704 Y69.748 E0.50574
+G1 X82.504 Y69.748 E0.74409
+G1 X82.504 Y70.154 E0.75397
+G1 X72.704 Y70.154 E0.99232
+G1 X72.704 Y70.548 E1.0019
+G1 X82.504 Y70.548 E1.24025
+G1 X82.504 Y70.954 E1.25012
+G1 X72.698 Y70.954 E1.48862
+G1 X72.698 Y70.948 E1.48877
+; deleted M10[49]
+G1 X82.498 Y70.948 E1.49725
+G1 X82.498 Y70.554 E1.49751
+G1 X72.698 Y70.554 E1.5062
+G1 X72.698 Y70.148 E1.50665
+G1 X82.498 Y70.148 E1.51534
+G1 X82.498 Y69.754 E1.5156
+G1 X72.698 Y69.754 E1.52429
+G1 X72.698 Y69.348 E1.52474
+G1 X82.498 Y69.348 E1.53344
+G1 X82.498 Y68.954 E1.53369
+G1 X72.698 Y68.954 E1.54239
+G1 X72.698 Y68.548 E1.54283
+G1 X82.504 Y68.548 E1.78133
+G1 X82.504 Y68.554 E1.78147
+G1 X72.704 Y68.554 E1.78874
+G0 F3600 X72.704 Y68.652
+M106 P2 S0 ; Close T2 valve
+G1 F1200 E-14.21126
+G4 P50; Wait 50 miliseconds
+G1 F600 Z1.3
+G92 E0
+T3
+G92 E0
+M105
+; deleted M10[49]
+; deleted M10[49]
+; deleted M107 P3
+M106 P3 S0 ; Close T3 valve
+G1 F1500 E-6.5
+G4 P50; Wait 50 miliseconds
+;MESH:Circuito recto 0.2mm.stl(5)
+G0 F3600 X183.704 Y68.652 Z1.3
+G1 F600 Z0.3
+G0 F3600 X170.062 Y68.227
+; deleted M10[49]
+;TYPE:WALL-OUTER
+M106 P3 S255 ; Open T3 valve
+G1 F1500 E0
+G4 P50; Wait 50 miliseconds
+G1 F1800 X170.062 Y68.621 E0.00958
+G1 X179.862 Y68.621 E0.24793
+G1 X179.862 Y69.027 E0.25781
+G1 X170.062 Y69.027 E0.49616
+G1 X170.062 Y69.421 E0.50574
+G1 X179.862 Y69.421 E0.74409
+G1 X179.862 Y69.827 E0.75397
+G1 X170.062 Y69.827 E0.99232
+G1 X170.062 Y70.221 E1.0019
+G1 X179.862 Y70.221 E1.24025
+G1 X179.862 Y70.627 E1.25012
+G1 X170.056 Y70.627 E1.48862
+G1 X170.056 Y70.621 E1.48877
+G1 X179.856 Y70.621 E1.49725
+G1 X179.856 Y70.227 E1.49751
+G1 X170.056 Y70.227 E1.5062
+G1 X170.056 Y69.821 E1.50665
+G1 X179.856 Y69.821 E1.51534
+G1 X179.856 Y69.427 E1.5156
+G1 X170.056 Y69.427 E1.52429
+G1 X170.056 Y69.021 E1.52474
+G1 X179.856 Y69.021 E1.53344
+G1 X179.856 Y68.627 E1.53369
+G1 X170.056 Y68.627 E1.54239
+G1 X170.056 Y68.221 E1.54283
+G1 X179.862 Y68.221 E1.78133
+G1 X179.862 Y68.227 E1.78147
+G1 X170.062 Y68.227 E1.78874
+G0 F3600 X170.062 Y68.325
+;TIME_ELAPSED:52.824089
+M106 P3 S0 ; Close T3 valve
+G1 F1500 E-4.71126
+G4 P50; Wait 50 miliseconds
+
+M82 ;absolute extrusion mode
+; deleted M10[49]
+;End of Gcode
+;SETTING_3 {"extruder_quality": ["[general]\\nversion = 4\\nname = BW_Circuito_4
+;SETTING_3 E\\ndefinition = custom\\n\\n[metadata]\\nsetting_version = 16\\ninte
+;SETTING_3 nt_category = default\\ntype = quality_changes\\nquality_type = high\
+;SETTING_3 \nposition = 0\\n\\n[values]\\nbottom_layers = 0\\ncool_fan_enabled =
+;SETTING_3  False\\ninfill_pattern = zigzag\\ninfill_sparse_density = 0\\nmateri
+;SETTING_3 al_final_print_temperature = 200\\nmaterial_initial_print_temperature
+;SETTING_3  = 200\\nspeed_print = 10\\ntop_layers = 0\\nwall_line_count = 1\\nwa
+;SETTING_3 ll_thickness = 1\\n\\n", "[general]\\nversion = 4\\nname = BW_Circuit
+;SETTING_3 o_4E\\ndefinition = custom\\n\\n[metadata]\\nsetting_version = 16\\ni
+;SETTING_3 ntent_category = default\\ntype = quality_changes\\nquality_type = hi
+;SETTING_3 gh\\nposition = 1\\n\\n[values]\\ninfill_sparse_density = 10\\n\\n", 
+;SETTING_3 "[general]\\nversion = 4\\nname = BW_Circuito_4E\\ndefinition = custo
+;SETTING_3 m\\n\\n[metadata]\\nsetting_version = 16\\nintent_category = default\
+;SETTING_3 \ntype = quality_changes\\nquality_type = high\\nposition = 2\\n\\n[v
+;SETTING_3 alues]\\ninfill_sparse_density = 10\\n\\n", "[general]\\nversion = 4\
+;SETTING_3 \nname = BW_Circuito_4E\\ndefinition = custom\\n\\n[metadata]\\nsetti
+;SETTING_3 ng_version = 16\\nintent_category = default\\ntype = quality_changes\
+;SETTING_3 \nquality_type = high\\nposition = 3\\n\\n[values]\\ninfill_sparse_de
+;SETTING_3 nsity = 10\\n\\n"], "global_quality": "[general]\\nversion = 4\\nname
+;SETTING_3  = BW_Circuito_4E\\ndefinition = custom\\n\\n[metadata]\\nsetting_ver
+;SETTING_3 sion = 16\\ntype = quality_changes\\nquality_type = high\\n\\n[values
+;SETTING_3 ]\\nadhesion_type = none\\nlayer_height = 0.15\\nretraction_combing =
+;SETTING_3  off\\n\\n"}
