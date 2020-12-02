@@ -22,7 +22,7 @@ import sys, os
 # data: list = ['a', 2, 3.3]
 
 os.path.abspath('.')
-my_file = open("Circuito recto 0.2mm_V4.gcode", "r")
+my_file = open("Circuito recto 0.2mm_V5.gcode", "r")
 
 data = my_file.readlines()
 print(data)
@@ -75,7 +75,7 @@ while i < len(data): # len counts lines in file
 
     i = i + 1
 
-with open("codigo_print_V4.gcode", 'w') as file_handler:
+with open("codigo_print_V5.gcode", 'w') as file_handler:
     for item in data:
         file_handler.write("{}".format(item))
 
