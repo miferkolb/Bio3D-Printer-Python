@@ -75,7 +75,7 @@ while i < len(data): # len counts lines in file
 
     i = i + 1
 
-with open("codigo_print.gcode", 'w') as file_handler:
+with open("codigo_print2.gcode", 'w') as file_handler:
     for item in data:
         file_handler.write("{}".format(item))
 

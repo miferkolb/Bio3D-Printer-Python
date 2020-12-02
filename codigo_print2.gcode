@@ -9,9 +9,6 @@
 ;MAXY:113.403
 ;MAXZ:1.3
 ;Generated with Cura_SteamEngine 4.8.0
-M218 T1 X111 Y0 Z0
-M218 T2 X111 Y71 Z0
-M218 T3 X0 Y71 Z0
 T0
 ; deleted M10[49]
 ; deleted M10[49]
