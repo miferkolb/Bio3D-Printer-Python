@@ -22,8 +22,7 @@ import sys, os
 # data: list = ['a', 2, 3.3]
 
 os.path.abspath('.')
-my_file = open("CFFFP_Circuito recto 0.2mm.gcode", "r")
-# my_file = open("CFFFP_Cuadrado 0.2mm.gcode", "r")
+my_file = open("CFFFP_Circuito recto 0.2mm V2.gcode", "r")
 
 data = my_file.readlines()
 print(data)
@@ -44,39 +43,17 @@ for layer_number, layer in enumerate(data):
     data[layer_number] = re.sub(search_regex, replace_string, layer) #Replace all.
 
 
-i = 0
+
 search_string =  "T(0|1|2|3).*"      #  "^T([0-9.]+)"
 search_regex = re.compile(search_string)
 replace_string = "; Lets change the tool"
-
-# retraction_open_string = "^G1 E2.000 F2400.00"
-# search_regex_retraction_open = re.compile(retraction_open_string)
-# retraction_close_string =  "^G1 E([0-9.]+) F([0-9.]+)" #Looks for extruder retraction to replace with closing valve and waiting
-# search_regex_retraction_close = re.compile(retraction_close_string)
-
-# while i < len(data):
-
-#     tool = re.search(search_regex, data[i])
-#     if re.search(search_regex, data[i]):
-#         num_tool = tool.group(1)
-#         name_tool = tool.group(0)
-    
-#     if re.search(search_regex_retraction_open, data[i]):
-#         data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S255 ; Open ' + str(name_tool) + ' valve\n' # Replace to open Valve and Wait
-#         data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
-#         i = i + 1
-#     elif re.search(search_regex_retraction_close, data[i]):
-#         data[i] = 'M106 ' + 'P' + str(num_tool) + ' ' + 'S0 ; Close ' + str(name_tool) + ' valve\n' #Replace to close Valve and Wait
-#         data.insert(i+1, 'G4 P50; Wait 50 miliseconds\n') #   <-- Esta es la linea adicional que hay que añadir
-#         i = i + 1
-    
-#     i = i + 1
 
 open_string = "G1 F1500 E0"
 search_regex_open = re.compile(open_string)
 close_string =  "^G1 .*E-([0-9]+.)([0-9]+)$"
 search_regex_close = re.compile(close_string)
 
+i = 0
 while i < len(data): # len counts lines in file
     tool = re.search(search_regex, data[i])
     if re.search(search_regex, data[i]):
@@ -98,14 +75,7 @@ while i < len(data): # len counts lines in file
 
     i = i + 1
 
-
-
-
-# while i < len(data): # len counts lines in file
-
-
-
-with open("borra2.gcode", 'w') as file_handler:
+with open("codigo_print.gcode", 'w') as file_handler:
     for item in data:
         file_handler.write("{}".format(item))
 
